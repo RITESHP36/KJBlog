@@ -1,0 +1,37 @@
+import { Route, Routes } from "react-router-dom";
+import Home from "./pages/Home";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import PostDetails from "./pages/PostDetails";
+import CreatePost from "./pages/CreatePost";
+import EditPost from "./pages/EditPost";
+import Profile from "./pages/Profile";
+import { UserContextProvider } from "./context/UserContext";
+import MyBlogs from "./pages/MyBlogs";
+import { Toaster } from "react-hot-toast";
+import DesktopOnlyWrapper from "./components/DesktopOnlyWrapper";
+import Category from "./pages/Category"; 
+import { Analytics } from "@vercel/analytics/react"
+
+const App = () => {
+	return (
+		<DesktopOnlyWrapper>
+			<UserContextProvider>
+				<Toaster />
+				<Routes>
+					<Route exact path="/" element={<Home />} />
+					<Route exact path="/login" element={<Login />} />
+					<Route exact path="/register" element={<Register />} />
+					<Route exact path="/write" element={<CreatePost />} />
+					<Route exact path="/posts/post/:id" element={<PostDetails />} />
+					<Route exact path="/edit/:id" element={<EditPost />} />
+					<Route exact path="/myblogs/:id" element={<MyBlogs />} />
+					<Route exact path="/profile/:id" element={<Profile />} />
+					<Route path="/category/:cat" element={<Category />} />
+				</Routes>
+			</UserContextProvider>
+		</DesktopOnlyWrapper>
+	);
+};
+
+export default App;
