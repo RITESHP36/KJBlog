@@ -18,7 +18,7 @@ export function UserContextProvider({ children }) {
 				"https://kjblog-api.up.railway.app/api/auth/refetch",
 				{ withCredentials: true }
 			);
-			// console.log(res.data)
+			console.log(res.data);
 			setUser(res.data);
 		} catch (err) {
 			console.log(err);
