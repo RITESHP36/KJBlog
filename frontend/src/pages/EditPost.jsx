@@ -29,7 +29,9 @@ const EditPost = () => {
 
 	const fetchPost = async () => {
 		try {
-			const res = await axios.get("https://kjblog.onrender.com/api/posts/" + postId);
+			const res = await axios.get(
+				"https://kjblog-api.up.railway.app/api/posts/" + postId
+			);
 			setTitle(res.data.title);
 			setDesc(res.data.desc);
 			setIntroductionImage(res.data.introductionImage);
@@ -95,9 +97,13 @@ const EditPost = () => {
 
 		//post upload
 		try {
-			const res = await axios.put("https://kjblog.onrender.com/api/posts/" + postId, post, {
-				withCredentials: true,
-			});
+			const res = await axios.put(
+				"https://kjblog-api.up.railway.app/api/posts/" + postId,
+				post,
+				{
+					withCredentials: true,
+				}
+			);
 			toast.success("Post updated successfully");
 			navigate("/posts/post/" + res.data._id);
 			// console.log(res.data)
@@ -182,7 +188,7 @@ const EditPost = () => {
 		const file = e.target.files[0];
 		try {
 			const url = await uploadImage(file);
-			setSubBodyImage(url);        
+			setSubBodyImage(url);
 			toast.success("Sub-body image uploaded successfully");
 		} catch (error) {
 			// console.log("Sub-body image upload failed:", error);

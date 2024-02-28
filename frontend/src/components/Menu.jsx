@@ -11,9 +11,12 @@ const Menu = () => {
 
 	const handleLogout = async () => {
 		try {
-			const res = await axios.get("https://kjblog.onrender.com/api/auth/logout", {
-				withCredentials: true,
-			});
+			const res = await axios.get(
+				"https://kjblog-api.up.railway.app/api/auth/logout",
+				{
+					withCredentials: true,
+				}
+			);
 			toast.success("Logged out successfully");
 			setUser(null);
 			navigate("/login");

@@ -24,19 +24,22 @@ const Register = () => {
 
 	const handleRegister = async () => {
 		try {
-			const res = await axios.post("https://kjblog.onrender.com/api/auth/register", {
-				username,
-				email,
-				password,
-				isTeam,
-				phone,
-				name: isTeam ? "" : name,
-				name1: isTeam ? name1 : "",
-				name2: isTeam ? name2 : "",
-				regno: isTeam ? "" : regno,
-				regno1: isTeam ? regno1 : "",
-				regno2: isTeam ? regno2 : "",
-			});
+			const res = await axios.post(
+				"https://kjblog-api.up.railway.app/api/auth/register",
+				{
+					username,
+					email,
+					password,
+					isTeam,
+					phone,
+					name: isTeam ? "" : name,
+					name1: isTeam ? name1 : "",
+					name2: isTeam ? name2 : "",
+					regno: isTeam ? "" : regno,
+					regno1: isTeam ? regno1 : "",
+					regno2: isTeam ? regno2 : "",
+				}
+			);
 			setUsername(res.data.username);
 			setEmail(res.data.email);
 			setPassword(res.data.password);

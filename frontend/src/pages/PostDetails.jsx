@@ -21,7 +21,9 @@ const PostDetails = () => {
 
 	const fetchPost = async () => {
 		try {
-			const res = await axios.get("https://kjblog.onrender.com/api/posts/" + postId);
+			const res = await axios.get(
+				"https://kjblog-api.up.railway.app/api/posts/" + postId
+			);
 			// console.log(res.data)
 			setPost(res.data);
 			// toast.success("Post fetched successfully");
@@ -33,9 +35,12 @@ const PostDetails = () => {
 
 	const handleDeletePost = async () => {
 		try {
-			const res = await axios.delete("https://kjblog.onrender.com/api/posts/" + postId, {
-				withCredentials: true,
-			});
+			const res = await axios.delete(
+				"https://kjblog-api.up.railway.app/api/posts/" + postId,
+				{
+					withCredentials: true,
+				}
+			);
 			// console.log(res.data);
 			toast.success("Post deleted successfully");
 			navigate("/");
@@ -52,7 +57,9 @@ const PostDetails = () => {
 	const fetchPostComments = async () => {
 		setLoader(true);
 		try {
-			const res = await axios.get("https://kjblog.onrender.com/api/comments/post/" + postId);
+			const res = await axios.get(
+				"https://kjblog-api.up.railway.app/api/comments/post/" + postId
+			);
 			setComments(res.data);
 			setLoader(false);
 		} catch (err) {
@@ -70,7 +77,7 @@ const PostDetails = () => {
 		e.preventDefault();
 		try {
 			const res = await axios.post(
-				"https://kjblog.onrender.com/api/comments/create",
+				"https://kjblog-api.up.railway.app/api/comments/create",
 				{
 					comment: comment,
 					author: user.username,

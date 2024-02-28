@@ -19,7 +19,9 @@ const MyBlogs = () => {
 	const fetchPosts = async () => {
 		setLoader(true);
 		try {
-			const res = await axios.get("https://kjblog.onrender.com/api/posts/user/" + user._id);
+			const res = await axios.get(
+				"https://kjblog-api.up.railway.app/api/posts/user/" + user._id
+			);
 			// console.log(res.data)
 			setPosts(res.data);
 			if (res.data.length === 0) {
@@ -50,8 +52,11 @@ const MyBlogs = () => {
 				) : !noResults ? (
 					posts.map((post) => (
 						<>
-							<Link key={post._id} to={user ? `/posts/post/${post._id}` : "/login"}>
-								<HomePosts  post={post} />
+							<Link
+								key={post._id}
+								to={user ? `/posts/post/${post._id}` : "/login"}
+							>
+								<HomePosts post={post} />
 							</Link>
 						</>
 					))

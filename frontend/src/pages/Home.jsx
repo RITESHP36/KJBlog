@@ -24,7 +24,9 @@ const Home = () => {
 	const fetchPosts = async () => {
 		setLoader(true);
 		try {
-			const res = await axios.get("https://kjblog.onrender.com/api/posts/" + search);
+			const res = await axios.get(
+				"https://kjblog-api.up.railway.app/api/posts/" + search
+			);
 			// console.log(res.data)
 			setPosts(res.data);
 			if (res.data.length === 0) {

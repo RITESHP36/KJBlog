@@ -1,7 +1,7 @@
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { IoCloseCircleSharp } from "react-icons/io5";
-import { useContext, useState,useEffect } from "react";
+import { useContext, useState, useEffect } from "react";
 import { UserContext } from "../context/UserContext";
 import axios from "axios";
 import { Navigate, useNavigate, Link } from "react-router-dom";
@@ -29,7 +29,9 @@ const CreatePost = () => {
 	useEffect(() => {
 		const fetchUserPosts = async () => {
 			try {
-				const res = await axios.get("https://kjblog.onrender.com/api/posts/user/" + user._id);
+				const res = await axios.get(
+					"https://kjblog-api.up.railway.app/api/posts/user/" + user._id
+				);
 				if (res.data.length > 0) {
 					setHasPosted(true);
 				}
@@ -45,7 +47,6 @@ const CreatePost = () => {
 		toast.error("You have already posted a blog");
 		navigate("/myblogs/:id");
 	}
-
 
 	// Uploading image and url generration function into firebase
 	const uploadImage = (img) => {
@@ -118,7 +119,7 @@ const CreatePost = () => {
 		const file = e.target.files[0];
 		try {
 			const url = await uploadImage(file);
-			setSubBodyImage(url);        
+			setSubBodyImage(url);
 			toast.success("Sub-body image uploaded successfully");
 		} catch (error) {
 			// console.log("Sub-body image upload failed:", error);
@@ -171,9 +172,13 @@ const CreatePost = () => {
 		};
 
 		try {
-			const res = await axios.post("https://kjblog.onrender.com/api/posts/create", post, {
-				withCredentials: true,
-			});
+			const res = await axios.post(
+				"https://kjblog-api.up.railway.app/api/posts/create",
+				post,
+				{
+					withCredentials: true,
+				}
+			);
 			navigate("/posts/post/" + res.data._id);
 			toast.success("Post created successfully");
 		} catch (err) {
@@ -353,7 +358,11 @@ const CreatePost = () => {
 								</label>
 							</div>
 						) : (
-							<img src={introductionImage} alt="Introduction" className="w-full" />
+							<img
+								src={introductionImage}
+								alt="Introduction"
+								className="w-full"
+							/>
 						)}
 						<p
 							className="bg-red-500 px-2 py-1 text-white rounded-lg font-medium text-center w-fit mx-auto mt-2 flex items-center gap-2 cursor-pointer

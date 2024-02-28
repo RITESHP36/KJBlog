@@ -24,10 +24,11 @@ const Profile = () => {
 	const [error, setError] = useState(false);
 	// console.log(user)
 
-
 	const fetchUserPosts = async () => {
 		try {
-			const res = await axios.get("https://kjblog.onrender.com/api/posts/user/" + user._id);
+			const res = await axios.get(
+				"https://kjblog-api.up.railway.app/api/posts/user/" + user._id
+			);
 			// console.log(res.data)
 			setPosts(res.data);
 		} catch (err) {
@@ -98,7 +99,8 @@ const Profile = () => {
 							/>
 						</div>
 						<p className="text-sm border-t-2 border-b-2 py-2 px-2 w-full">
-							<strong>Username:</strong> <span className="font-medium">@ {username}</span>
+							<strong>Username:</strong>{" "}
+							<span className="font-medium">@ {username}</span>
 						</p>
 						<p className="text-sm border-b-2 pb-2 px-2 w-full">
 							<strong>Email:</strong> {email}
