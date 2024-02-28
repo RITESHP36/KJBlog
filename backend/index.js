@@ -33,12 +33,13 @@ const connectDB = async () => {
 	}
 };
 
-
 //middlewares
 dotenv.config();
 app.use(express.json());
 app.use("/images", express.static(path.join(__dirname, "/images")));
-app.use(cors({ origin: "https://kj-blogging-blitz.vercel.app", credentials: true }));
+app.use(
+	cors({ origin: "https://kj-bloggingblitz.vercel.app", credentials: true })
+);
 app.use(cookieParser());
 app.use("/api/auth", authRoute);
 app.use("/api/users", userRoute);
@@ -48,27 +49,25 @@ app.use("/api/comments", commentRoute);
 // Set timeout limit to 10 seconds
 app.use((req, res, next) => {
 	res.setTimeout(10000, () => {
-	  console.log("Request timed out");
-	  res.status(504).send("Request timed out");
+		console.log("Request timed out");
+		res.status(504).send("Request timed out");
 	});
 	next();
-  });
+});
 
 // Welcome route in JSON format
 app.get("/", (req, res) => {
 	res.json({ message: "Welcome to the MERN Blogging Website!" });
-  });
-  
-// Check if the database is connected and send JSON response
-app.get("/check-db-status", (req, res) => {
-  if (isDatabaseConnected) {
-    res.json({ status: "Database connected" });
-  } else {
-    res.json({ status: "Database not connected" });
-  }
 });
 
-
+// Check if the database is connected and send JSON response
+app.get("/check-db-status", (req, res) => {
+	if (isDatabaseConnected) {
+		res.json({ status: "Database connected" });
+	} else {
+		res.json({ status: "Database not connected" });
+	}
+});
 
 app.listen(process.env.PORT, () => {
 	connectDB();
