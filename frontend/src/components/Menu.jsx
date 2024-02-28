@@ -1,7 +1,6 @@
 import { useContext } from "react";
 import { UserContext } from "../context/UserContext";
 import axios from "axios";
-import { URL } from "../url";
 import { Link, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 
@@ -12,7 +11,7 @@ const Menu = () => {
 
 	const handleLogout = async () => {
 		try {
-			const res = await axios.get(URL + "/api/auth/logout", {
+			const res = await axios.get("https://kjblog.onrender.com/api/auth/logout", {
 				withCredentials: true,
 			});
 			toast.success("Logged out successfully");

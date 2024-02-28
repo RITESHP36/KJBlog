@@ -5,7 +5,6 @@ import Navbar from "../components/Navbar";
 import { BiEdit } from "react-icons/bi";
 import { MdDelete } from "react-icons/md";
 import axios from "axios";
-import { URL, IF } from "../url";
 import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../context/UserContext";
 import Loader from "../components/Loader";
@@ -22,7 +21,7 @@ const PostDetails = () => {
 
 	const fetchPost = async () => {
 		try {
-			const res = await axios.get(URL + "/api/posts/" + postId);
+			const res = await axios.get("https://kjblog.onrender.com/api/posts/" + postId);
 			// console.log(res.data)
 			setPost(res.data);
 			// toast.success("Post fetched successfully");
@@ -34,7 +33,7 @@ const PostDetails = () => {
 
 	const handleDeletePost = async () => {
 		try {
-			const res = await axios.delete(URL + "/api/posts/" + postId, {
+			const res = await axios.delete("https://kjblog.onrender.com/api/posts/" + postId, {
 				withCredentials: true,
 			});
 			// console.log(res.data);
@@ -53,7 +52,7 @@ const PostDetails = () => {
 	const fetchPostComments = async () => {
 		setLoader(true);
 		try {
-			const res = await axios.get(URL + "/api/comments/post/" + postId);
+			const res = await axios.get("https://kjblog.onrender.com/api/comments/post/" + postId);
 			setComments(res.data);
 			setLoader(false);
 		} catch (err) {
@@ -71,7 +70,7 @@ const PostDetails = () => {
 		e.preventDefault();
 		try {
 			const res = await axios.post(
-				URL + "/api/comments/create",
+				"https://kjblog.onrender.com/api/comments/create",
 				{
 					comment: comment,
 					author: user.username,

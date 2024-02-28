@@ -3,7 +3,6 @@ import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import { IoCloseCircleSharp } from "react-icons/io5";
 import axios from "axios";
-import { URL } from "../url";
 import { useNavigate, useParams } from "react-router-dom";
 import { UserContext } from "../context/UserContext";
 import { storage } from "../components/firebase";
@@ -30,7 +29,7 @@ const EditPost = () => {
 
 	const fetchPost = async () => {
 		try {
-			const res = await axios.get(URL + "/api/posts/" + postId);
+			const res = await axios.get("https://kjblog.onrender.com/api/posts/" + postId);
 			setTitle(res.data.title);
 			setDesc(res.data.desc);
 			setIntroductionImage(res.data.introductionImage);
@@ -96,7 +95,7 @@ const EditPost = () => {
 
 		//post upload
 		try {
-			const res = await axios.put(URL + "/api/posts/" + postId, post, {
+			const res = await axios.put("https://kjblog.onrender.com/api/posts/" + postId, post, {
 				withCredentials: true,
 			});
 			toast.success("Post updated successfully");

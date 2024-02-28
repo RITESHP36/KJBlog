@@ -3,7 +3,6 @@ import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import ProfilePosts from "../components/ProfilePosts";
 import axios from "axios";
-import { IF, URL } from "../url";
 import { UserContext } from "../context/UserContext";
 import { useNavigate, useParams } from "react-router-dom";
 
@@ -25,19 +24,10 @@ const Profile = () => {
 	const [error, setError] = useState(false);
 	// console.log(user)
 
-	// const fetchProfile = async () => {
-	// 	try {
-	// 		const res = await axios.get(URL + "/api/users/" + user._id);
-	// 		// setUsername(res.data.username);
-	// 		// setEmail(res.data.email);
-	// 	} catch (err) {
-	// 		console.log(err);
-	// 	}
-	// };
 
 	const fetchUserPosts = async () => {
 		try {
-			const res = await axios.get(URL + "/api/posts/user/" + user._id);
+			const res = await axios.get("https://kjblog.onrender.com/api/posts/user/" + user._id);
 			// console.log(res.data)
 			setPosts(res.data);
 		} catch (err) {

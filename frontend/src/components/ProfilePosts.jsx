@@ -1,5 +1,4 @@
 /* eslint-disable react/prop-types */
-import { IF } from "../url";
 
 const ProfilePosts = ({ p }) => {
 	// console.log(p)

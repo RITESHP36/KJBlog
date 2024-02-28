@@ -2,7 +2,6 @@ import { Link, useNavigate } from "react-router-dom";
 import Footer from "../components/Footer";
 import { useContext, useState } from "react";
 import axios from "axios";
-import { URL } from "../url";
 import { UserContext } from "../context/UserContext";
 import toast from "react-hot-toast";
 
@@ -16,7 +15,7 @@ const Login = () => {
   const handleLogin = async () => {
     try {
       const res = await axios.post(
-        URL + "/api/auth/login",
+        "https://kjblog.onrender.com/api/auth/login",
         { username, password }, // send plain text password
         { withCredentials: true }
       );

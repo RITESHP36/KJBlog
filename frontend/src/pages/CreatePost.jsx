@@ -3,7 +3,6 @@ import Footer from "../components/Footer";
 import { IoCloseCircleSharp } from "react-icons/io5";
 import { useContext, useState,useEffect } from "react";
 import { UserContext } from "../context/UserContext";
-import { URL } from "../url";
 import axios from "axios";
 import { Navigate, useNavigate, Link } from "react-router-dom";
 import { storage } from "../components/firebase";
@@ -30,7 +29,7 @@ const CreatePost = () => {
 	useEffect(() => {
 		const fetchUserPosts = async () => {
 			try {
-				const res = await axios.get(URL + "/api/posts/user/" + user._id);
+				const res = await axios.get("https://kjblog.onrender.com/api/posts/user/" + user._id);
 				if (res.data.length > 0) {
 					setHasPosted(true);
 				}
@@ -172,7 +171,7 @@ const CreatePost = () => {
 		};
 
 		try {
-			const res = await axios.post(URL + "/api/posts/create", post, {
+			const res = await axios.post("https://kjblog.onrender.com/api/posts/create", post, {
 				withCredentials: true,
 			});
 			navigate("/posts/post/" + res.data._id);
