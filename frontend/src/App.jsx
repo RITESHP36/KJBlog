@@ -11,7 +11,6 @@ import MyBlogs from "./pages/MyBlogs";
 import { Toaster } from "react-hot-toast";
 import DesktopOnlyWrapper from "./components/DesktopOnlyWrapper";
 import Category from "./pages/Category"; 
-import { Analytics } from "@vercel/analytics/react"
 
 const App = () => {
 	return (
