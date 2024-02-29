@@ -150,7 +150,7 @@ const Home = () => {
 						</p>
 						<div className="flex flex-col gap-4 font-poppins text-sm">
 							<div className="flex justify-between items-center">
-								<p className="text-white font-medium">- Registration Open</p>
+								<p className="text-white font-medium">- Registration Closed</p>
 							</div>
 							<div className="flex justify-between items-center">
 								<p className="text-white font-medium">
