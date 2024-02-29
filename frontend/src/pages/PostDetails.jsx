@@ -21,11 +21,13 @@ const PostDetails = () => {
 
 	const fetchPost = async () => {
 		try {
+			const token = localStorage.getItem("token");
 			const res = await axios.get(
-				"https://kjblog-api.up.railway.app/api/posts/" + postId
+				"https://kjblog-api.up.railway.app/api/posts/" + postId,
+				{
+					headers: { Authorization: `Bearer ${token}` }, // Include the token in the request headers
+				}
 			);
-			// console.log(res.data)
-			setPost(res.data);
 			// toast.success("Post fetched successfully");
 		} catch (err) {
 			// console.log(err);
@@ -35,17 +37,18 @@ const PostDetails = () => {
 
 	const handleDeletePost = async () => {
 		try {
+			const token = localStorage.getItem("token");
 			const res = await axios.delete(
 				"https://kjblog-api.up.railway.app/api/posts/" + postId,
 				{
-					withCredentials: true,
+					headers: { Authorization: `Bearer ${token}` }, // Include the token in the request headers
 				}
 			);
 			// console.log(res.data);
 			toast.success("Post deleted successfully");
 			navigate("/");
 		} catch (err) {
-			console.log(err);
+			console.log("Error at handleDeletePost: ", err);
 			toast.error("Failed to delete post");
 		}
 	};
@@ -57,8 +60,12 @@ const PostDetails = () => {
 	const fetchPostComments = async () => {
 		setLoader(true);
 		try {
+			const token = localStorage.getItem("token");
 			const res = await axios.get(
-				"https://kjblog-api.up.railway.app/api/comments/post/" + postId
+				"https://kjblog-api.up.railway.app/api/comments/post/" + postId,
+				{
+					headers: { Authorization: `Bearer ${token}` }, // Include the token in the request headers
+				}
 			);
 			setComments(res.data);
 			setLoader(false);
@@ -76,6 +83,7 @@ const PostDetails = () => {
 	const postComment = async (e) => {
 		e.preventDefault();
 		try {
+			const token = localStorage.getItem("token");
 			const res = await axios.post(
 				"https://kjblog-api.up.railway.app/api/comments/create",
 				{
@@ -84,7 +92,7 @@ const PostDetails = () => {
 					postId: postId,
 					userId: user._id,
 				},
-				{ withCredentials: true }
+				{ headers: { Authorization: `Bearer ${token}` }, withCredentials: true }
 			);
 
 			// fetchPostComments()

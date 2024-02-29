@@ -19,6 +19,8 @@ const Login = () => {
 				{ username, password }, // send plain text password
 				{ withCredentials: true }
 			);
+			localStorage.setItem("token", res.data.token); // Store the token in local storage
+			console.log("Token at login: ", res.data.token);
 			setUser(res.data);
 			setError(false);
 			navigate("/");

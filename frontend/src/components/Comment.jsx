@@ -8,10 +8,9 @@ const Comment = ({ c, post }) => {
 	const { user } = useContext(UserContext);
 	const deleteComment = async (id) => {
 		try {
-			await axios.delete(
-				"https://kjblog-api.up.railway.app/api/comments/" + id,
-				{ withCredentials: true }
-			);
+			await axios.delete("https://kjblog-api.up.railway.app/api/comments/" + id, {
+				withCredentials: true,
+			});
 			window.location.reload(true);
 		} catch (err) {
 			console.log(err);

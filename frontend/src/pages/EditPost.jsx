@@ -29,10 +29,13 @@ const EditPost = () => {
 
 	const fetchPost = async () => {
 		try {
+			const token = localStorage.getItem("token");
 			const res = await axios.get(
-				"https://kjblog-api.up.railway.app/api/posts/" + postId
+				"https://kjblog-api.up.railway.app/api/posts/",
+				{
+					headers: { Authorization: `Bearer ${token}` }, // Include the token in the request headers
+				}
 			);
-			setTitle(res.data.title);
 			setDesc(res.data.desc);
 			setIntroductionImage(res.data.introductionImage);
 			setBlogImages(res.data.blogImages);
@@ -95,20 +98,22 @@ const EditPost = () => {
 			subBodyImage,
 		};
 
+		const token = localStorage.getItem("token");
+
 		//post upload
 		try {
 			const res = await axios.put(
 				"https://kjblog-api.up.railway.app/api/posts/" + postId,
 				post,
 				{
-					withCredentials: true,
+					headers: { Authorization: `Bearer ${token}` }, // Include the token in the request headers
 				}
 			);
 			toast.success("Post updated successfully");
 			navigate("/posts/post/" + res.data._id);
 			// console.log(res.data)
 		} catch (err) {
-			console.log(err);
+			console.log("Error at EditPost.jsx handleUpdate: ", err);
 			toast.error("Error updating post");
 		}
 	};

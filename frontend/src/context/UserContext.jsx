@@ -14,14 +14,17 @@ export function UserContextProvider({ children }) {
 
 	const getUser = async () => {
 		try {
+			const token = localStorage.getItem("token"); // Retrieve token from local storage
 			const res = await axios.get(
 				"https://kjblog-api.up.railway.app/api/auth/refetch",
-				{ withCredentials: true }
+				{
+					headers: { Authorization: `Bearer ${token}` },
+				}
 			);
-			console.log(res.data);
+			console.log("Data recieved at UserContext.jsx getUser: ", res.data);
 			setUser(res.data);
 		} catch (err) {
-			console.log(err);
+			console.log("Error at UserContext.jsx getUser: ", err);
 		}
 	};
 

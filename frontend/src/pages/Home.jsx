@@ -24,8 +24,12 @@ const Home = () => {
 	const fetchPosts = async () => {
 		setLoader(true);
 		try {
+			const token = localStorage.getItem("token");
 			const res = await axios.get(
-				"https://kjblog-api.up.railway.app/api/posts/" + search
+				"https://kjblog-api.up.railway.app/api/posts/" + search,
+				{
+					headers: { Authorization: `Bearer ${token}` }, // Include the token in the request headers
+				}
 			);
 			// console.log(res.data)
 			setPosts(res.data);

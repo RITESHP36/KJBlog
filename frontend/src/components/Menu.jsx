@@ -11,6 +11,7 @@ const Menu = () => {
 
 	const handleLogout = async () => {
 		try {
+			localStorage.removeItem("token");
 			const res = await axios.get(
 				"https://kjblog-api.up.railway.app/api/auth/logout",
 				{

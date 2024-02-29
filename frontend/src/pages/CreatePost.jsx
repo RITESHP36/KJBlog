@@ -153,6 +153,8 @@ const CreatePost = () => {
 			return;
 		}
 
+		const token = localStorage.getItem("token"); // Retrieve the token from local storage
+
 		const post = {
 			title,
 			desc,
@@ -176,13 +178,13 @@ const CreatePost = () => {
 				"https://kjblog-api.up.railway.app/api/posts/create",
 				post,
 				{
-					withCredentials: true,
+					headers: { Authorization: `Bearer ${token}` }, // Include the token in the request headers
 				}
 			);
 			navigate("/posts/post/" + res.data._id);
 			toast.success("Post created successfully");
 		} catch (err) {
-			console.error(err);
+			console.error("Error at CreatePost.jsx: ", err);
 			toast.error("Error creating post");
 		}
 	};
