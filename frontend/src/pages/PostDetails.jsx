@@ -23,11 +23,9 @@ const PostDetails = () => {
 		try {
 			const token = localStorage.getItem("token");
 			const res = await axios.get(
-				"https://kjblog-api.up.railway.app/api/posts/" + postId,
-				{
-					headers: { Authorization: `Bearer ${token}` }, // Include the token in the request headers
-				}
+				"https://kjblog-api.up.railway.app/api/posts/" + postId
 			);
+			setPost(res.data);
 			// toast.success("Post fetched successfully");
 		} catch (err) {
 			// console.log(err);

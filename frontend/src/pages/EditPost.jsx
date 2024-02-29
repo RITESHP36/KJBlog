@@ -31,7 +31,7 @@ const EditPost = () => {
 		try {
 			const token = localStorage.getItem("token");
 			const res = await axios.get(
-				"https://kjblog-api.up.railway.app/api/posts/",
+				"https://kjblog-api.up.railway.app/api/posts/" + postId,
 				{
 					headers: { Authorization: `Bearer ${token}` }, // Include the token in the request headers
 				}
@@ -169,6 +169,9 @@ const EditPost = () => {
 	const handleBlogImageChange = async (e) => {
 		const files = e.target.files;
 		const newBlogImages = [];
+		if (!files) {
+			return; // Return early if no files are selected
+		}
 		if (blogImages.length + files.length > 2) {
 			// console.log("Cannot add more than 2 images");
 			toast.error("Cannot add more than 2 images");

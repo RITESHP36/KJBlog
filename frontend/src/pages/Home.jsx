@@ -49,7 +49,7 @@ const Home = () => {
 
 	const updateCountdown = () => {
 		const currentDate = new Date();
-		const targetDate = new Date("2024-02-28T12:00:00"); // Modify the target date and time here
+		const targetDate = new Date("2024-03-01T23:59:59"); // Modify the target date and time here
 		const timeRemaining = targetDate - currentDate;
 		const daysRemaining = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
 		const hoursRemaining = Math.floor(
@@ -148,9 +148,14 @@ const Home = () => {
 						<p className="text-white text-center font-semibold text-xl pb-2 shadow-2xl">
 							UPDATES
 						</p>
-						<div className="flex flex-col gap-4 font-poppins">
+						<div className="flex flex-col gap-4 font-poppins text-sm">
 							<div className="flex justify-between items-center">
 								<p className="text-white font-medium">- Registration Open</p>
+							</div>
+							<div className="flex justify-between items-center">
+								<p className="text-white font-medium">
+									- Check Email for username and password
+								</p>
 							</div>
 						</div>
 					</div>
