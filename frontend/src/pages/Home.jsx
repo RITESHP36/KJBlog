@@ -49,7 +49,7 @@ const Home = () => {
 
 	const updateCountdown = () => {
 		const currentDate = new Date();
-		const targetDate = new Date("2024-03-02T00:30:00"); // Modify the target date and time here
+		const targetDate = new Date("2024-03-02T00:35:00"); // Modify the target date and time here
 		const timeRemaining = targetDate - currentDate;
 		let daysRemaining = 0;
 		let hoursRemaining = 0;
