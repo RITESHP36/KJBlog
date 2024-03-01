@@ -167,7 +167,7 @@ const PostDetails = () => {
 						{/* Introduction Image */}
 						{post.introductionImage ? (
 							<img
-								src={post.introductionImage}
+								src={post.introductionImage||"/bg3.png"}
 								className="w-full mx-auto mt-8 rounded-sm h-64 object-cover"
 								alt="Introduction"
 							/>
@@ -218,7 +218,7 @@ const PostDetails = () => {
 								{/* Sub Body Image */}
 								{post.subBodyImage && (
 									<img
-										src={post.subBodyImage}
+										src={post.subBodyImage||"/bg3.png"}
 										className="w-full mx-auto mt-8 h-64 rounded-sm object-cover"
 										alt="Introduction"
 									/>
