@@ -49,7 +49,7 @@ const Home = () => {
 
 	const updateCountdown = () => {
 		const currentDate = new Date();
-		const targetDate = new Date("2024-03-02T00:15:00"); // Modify the target date and time here
+		const targetDate = new Date("2024-03-02T00:20:00"); // Modify the target date and time here
 		const timeRemaining = targetDate - currentDate;
 		let daysRemaining = 0;
 		let hoursRemaining = 0;
@@ -156,10 +156,13 @@ const Home = () => {
 						</p>
 						<div className="flex flex-col gap-4 font-poppins text-sm">
 							<div className="flex justify-between items-center">
-								<p className="text-white font-medium">- Event will end soon</p>
+								<p className="text-white font-medium">- Event ending soon</p>
 							</div>
 							<div className="flex justify-between items-center">
-								<p className="text-white font-medium">- Upload your posts for evaluation</p>
+								<p className="text-white font-medium">- Upload your post for evaluation</p>
+							</div>
+							<div className="flex justify-between items-center">
+								<p className="text-white font-medium">- Thanking everyone for their participation</p>
 							</div>
 						</div>
 					</div>
