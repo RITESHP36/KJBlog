@@ -156,13 +156,16 @@ const Home = () => {
 						</p>
 						<div className="flex flex-col gap-4 font-poppins text-sm">
 							<div className="flex justify-between items-center">
-								<p className="text-white font-medium">- Event ending soon</p>
-							</div>
-							<div className="flex justify-between items-center">
-								<p className="text-white font-medium">- Upload your post for evaluation</p>
+								<p className="text-white font-medium">- Event has ended</p>
 							</div>
 							<div className="flex justify-between items-center">
 								<p className="text-white font-medium">- Thanking everyone for their participation</p>
+							</div>
+							<div className="flex justify-between items-center">
+								<p className="text-white font-medium">- Posts made after 12:30 will not be considered for evaluation</p>
+							</div>
+							<div className="flex justify-between items-center">
+								<p className="text-white font-medium">- Results will be announced soon after evaluation</p>
 							</div>
 						</div>
 					</div>
