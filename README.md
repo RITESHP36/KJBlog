@@ -3,7 +3,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <img src="https://imgbox.com/gaMtUMOt.png" alt="logo" height="60">
+  <img src="https://i.ibb.co/drzfk8s/Screenshot-2024-05-22-220344.png" alt="Screenshot-2024-05-22-220344" border="0">
   <h3 align="center">Blogging Blitz</h3>
 
   <p align="center">
@@ -29,8 +29,9 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-![Blogging Blitz Screen Shot](https://imgbox.com/CFx8tY0h.png)
-
+![Blogging Blitz Screen Shot](https://i.ibb.co/JR5x4zW/Screenshot-2024-05-22-220810.png)
+![Project Snapshot2](https://i.ibb.co/dgbnRk9/image.png)
+![Project Snapshot3](https://i.ibb.co/PjpKQLw/image.png)
 Welcome to Blogging Blitz! Our project is a dynamic blogging website designed for the cultural club Kalinga Jyoti. Hosted at [https://kj-bloggingblitz.vercel.app/](https://kj-bloggingblitz.vercel.app/), this platform provides an engaging and responsive interface for users to create and share blogs. With real-time updates and secure user authentication, Blogging Blitz has significantly increased online traffic and facilitated the first-ever online event for Kalinga Jyoti.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
