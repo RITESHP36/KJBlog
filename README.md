@@ -34,6 +34,10 @@
 ![Project Snapshot3](https://i.ibb.co/PjpKQLw/image.png)
 Welcome to Blogging Blitz! Our project is a dynamic blogging website designed for the cultural club Kalinga Jyoti. Hosted at [https://kj-bloggingblitz.vercel.app/](https://kj-bloggingblitz.vercel.app/), this platform provides an engaging and responsive interface for users to create and share blogs. With real-time updates and secure user authentication, Blogging Blitz has significantly increased online traffic and facilitated the first-ever online event for Kalinga Jyoti.
 
+The project managed to gather online viewership for the KalingaJyoti Club
+![Analytics](https://github.com/RITESHP36/KJBlog/assets/119559499/dfe4c331-db0e-4a60-8c32-41dbcf919305)
+
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Built With
